@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find a Dog — Pawfect Home</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" class="nav-logo"><span>🐾</span> Pawfect Home</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dogs.html" class="active">Find a Dog</a></li>
+        <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <a href="adopt.html" class="btn btn-primary">Adopt Now 🐶</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Find your <em>perfect dog</em></h1>
+      <p>Every one of our dogs is vaccinated, health-checked, and full of love waiting to be shared.</p>
+    </div>
+  </div>
+
+  <section style="padding:2.5rem 0 5.5rem;">
+    <div class="container">
+      <div class="dog-grid">
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/buddy.jpg" alt="Happy dog">
+            <span class="dog-tag urgent">Urgent</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Buddy</h3>
+            <div class="dog-meta"><span>🐾 Labrador Mix</span><span>📅 4 months</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Playful</span><span class="pill">Kid-friendly</span><span class="pill br">House-trained</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Buddy →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/luna.jpg" alt="Happy dog">
+            <span class="dog-tag new">New Arrival</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Luna</h3>
+            <div class="dog-meta"><span>🐾 Beagle</span><span>📅 1 year</span><span>⚥ Female</span></div>
+            <div class="pills"><span class="pill">Curious</span><span class="pill">Energetic</span><span class="pill br">Vaccinated</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Luna →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/bear.jpg" alt="Happy dog">
+            <span class="dog-tag">Available</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Bear</h3>
+            <div class="dog-meta"><span>🐾 Golden Retriever</span><span>📅 5 years</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Gentle</span><span class="pill">Calm</span><span class="pill br">Senior-friendly</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Bear →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/daisy.jpg" alt="Happy dog">
+            <span class="dog-tag">Available</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Daisy</h3>
+            <div class="dog-meta"><span>🐾 Poodle Mix</span><span>📅 2 years</span><span>⚥ Female</span></div>
+            <div class="pills"><span class="pill">Affectionate</span><span class="pill">Smart</span><span class="pill br">Hypoallergenic</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Daisy →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/rocky.jpg" alt="Happy dog">
+            <span class="dog-tag urgent">Urgent</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Rocky</h3>
+            <div class="dog-meta"><span>🐾 German Shepherd</span><span>📅 2 months</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Loyal</span><span class="pill">Intelligent</span><span class="pill br">Trained</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Rocky →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/mochi.jpg" alt="Happy dog">
+            <span class="dog-tag new">New Arrival</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Mochi</h3>
+            <div class="dog-meta"><span>🐾 Shih Tzu</span><span>📅 5 months</span><span>⚥ Female</span></div>
+            <div class="pills"><span class="pill">Tiny & Sweet</span><span class="pill">Lap dog</span><span class="pill br">Indoor</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Mochi →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/duke.jpg" alt="Happy dog">
+            <span class="dog-tag">Available</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Duke</h3>
+            <div class="dog-meta"><span>🐾 English Bulldog</span><span>📅 7 years</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Mellow</span><span class="pill">Lovable</span><span class="pill br">Senior</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Duke →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/coco.jpg" alt="Happy dog">
+            <span class="dog-tag">Available</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Coco</h3>
+            <div class="dog-meta"><span>🐾 Chihuahua</span><span>📅 2 years</span><span>⚥ Female</span></div>
+            <div class="pills"><span class="pill">Feisty</span><span class="pill">Brave</span><span class="pill br">Small home OK</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Coco →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/atlas.jpg" alt="Happy dog">
+            <span class="dog-tag new">New Arrival</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Atlas</h3>
+            <div class="dog-meta"><span>🐾 Border Collie</span><span>📅 3 years</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Agile</span><span class="pill">Smart</span><span class="pill br">Needs yard</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Atlas →</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="color:#fff;"><span>🐾</span> Pawfect Home</a>
+          <p>A safe haven for dogs in need and a starting point for families ready to open their hearts.</p>
+          <div class="socials"><div class="soc">📘</div><div class="soc">📷</div><div class="soc">🐦</div><div class="soc">▶️</div></div>
+        </div>
+        <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Home</a></li><li><a href="dogs.html">Find a Dog</a></li><li><a href="adopt.html">Adopt</a></li><li><a href="about.html">About Us</a></li></ul></div>
+        <div class="footer-col"><h5>Adoption</h5><ul><li><a href="adopt.html">Apply Now</a></li><li><a href="dogs.html">Browse Dogs</a></li><li><a href="#">Our Process</a></li><li><a href="#">FAQs</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">📞 (216) 12 345 678</a></li><li><a href="#">✉️ hello@pawfecthome.org</a></li><li><a href="#">📍 Manouba</a></li><li><a href="#">🕐 Mon–Sun: 9am–6pm</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Pawfect Home. Made with ❤️ for dogs everywhere.</p>
+        <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleHeart(b) { b.classList.toggle('on'); b.textContent = b.classList.contains('on') ? '❤️' : '🤍'; }
+  </script>
+</body>
+</html>

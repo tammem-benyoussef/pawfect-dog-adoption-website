@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawfect Home — Dog Adoption</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" class="nav-logo"><span>🐾</span> Pawfect Home</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="dogs.html">Find a Dog</a></li>
+        <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <a href="dogs.html" class="btn btn-primary">Adopt Now 🐶</a>
+    </div>
+  </nav>
+
+  <section class="section" style="background:var(--cream);">
+    <div class="container hero">
+      <div>
+        <span class="hero-badge">🏠 500+ happy adoptions this year</span>
+        <h1 class="fade-up">Give a dog a<br><em>forever home</em></h1>
+        <p class="fade-up delay-1">Every dog deserves love, warmth, and a family to call their own. Browse our shelter dogs and find your perfect match today.</p>
+        <div class="hero-actions fade-up delay-2">
+          <a href="dogs.html" class="btn btn-primary">Browse All Dogs →</a>
+          <a href="about.html" class="btn btn-outline">Our Mission</a>
+        </div>
+        <div class="hero-stats fade-up delay-3">
+          <div><div class="num">1,200+</div><div class="lbl">Dogs adopted</div></div>
+          <div><div class="num">98%</div><div class="lbl">Satisfaction rate</div></div>
+          <div><div class="num">8 yrs</div><div class="lbl">Of experience</div></div>
+        </div>
+      </div>
+
+      <div class="hero-img fade-up delay-2">
+        <div class="blob"></div>
+        <div class="hero-img-main">
+          <img src="images/herodog.jpg" alt="Happy dog">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Adopt, Don't Shop</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Every dog deserves a loving home</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">100% vaccinated dogs</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Free post-adoption support</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Save a life today</span><span class="ticker-item">✦</span>
+
+      <span class="ticker-item">Adopt, Don't Shop</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Every dog deserves a loving home</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">100% vaccinated dogs</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Free post-adoption support</span><span class="ticker-item">✦</span>
+      <span class="ticker-item">Save a life today</span><span class="ticker-item">✦</span>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.8rem;">
+        <div>
+          <span class="label">Meet our dogs</span>
+          <h2>Find your <em style="color:var(--terra);font-style:italic;">perfect match</em></h2>
+        </div>
+        <a href="dogs.html" class="btn btn-outline">See all dogs →</a>
+      </div>
+
+      <div class="dog-grid">
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/buddy.jpg" alt="Happy dog">
+            <span class="dog-tag urgent">Urgent</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Buddy</h3>
+            <div class="dog-meta"><span>🐾 Labrador Mix</span><span>📅 4 months</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Playful</span><span class="pill">Kid-friendly</span><span class="pill br">House-trained</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Buddy →</a></div>
+          </div>
+        </div>
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/luna.jpg" alt="Happy dog">
+            <span class="dog-tag new">New Arrival</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Luna</h3>
+            <div class="dog-meta"><span>🐾 Beagle</span><span>📅 1 year</span><span>⚥ Female</span></div>
+            <div class="pills"><span class="pill">Curious</span><span class="pill">Energetic</span><span class="pill br">Vaccinated</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Luna →</a></div>
+          </div>
+        </div>
+
+
+        <div class="dog-card">
+          <div class="dog-card-img">
+            <img src="images/bear.jpg" alt="Happy dog">
+            <span class="dog-tag">Available</span>
+            <button class="heart" onclick="toggleHeart(this)">🤍</button>
+          </div>
+          <div class="dog-body">
+            <h3>Bear</h3>
+            <div class="dog-meta"><span>🐾 Golden Retriever</span><span>📅 5 years</span><span>⚥ Male</span></div>
+            <div class="pills"><span class="pill">Gentle</span><span class="pill">Calm</span><span class="pill br">Senior-friendly</span></div>
+            <div class="dog-footer"><a href="adopt.html" class="dog-link">Adopt Bear →</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div style="position:relative;">
+          <div class="why-img-wrap">
+            <img src="images/happydogwithowner.jpg" alt="Happy dog">
+          </div>
+          <div class="why-accent">
+            <div class="big">500+</div>
+            <p>Families reunited with their perfect companion</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="label">Why adopt?</span>
+          <h2>You're not just getting a pet — <em>you're saving a life</em></h2>
+          <div class="why-list">
+            <div class="why-item"><div class="why-icon">❤️</div><div><h4>Unconditional Love</h4><p>Shelter dogs bond deeply and are incredibly grateful for a second chance.</p></div></div>
+            <div class="why-item"><div class="why-icon">💉</div><div><h4>Health Guaranteed</h4><p>Every dog is fully vaccinated, neutered/spayed, and health-checked before adoption.</p></div></div>
+            <div class="why-item"><div class="why-icon">🏠</div><div><h4>Post-Adoption Support</h4><p>Free behavioral guidance and vet advice for the first year after adoption.</p></div></div>
+            <div class="why-item"><div class="why-icon">🌍</div><div><h4>Make a Real Difference</h4><p>By adopting, you free up shelter space and support our life-saving mission.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:.5rem;">
+        <span class="label">Simple & fast</span>
+        <h2>Adopting is easier than you think</h2>
+        <p style="max-width:460px;margin:.7rem auto 0;">Our process is designed to make both you and the dog feel comfortable and confident.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step"><div class="step-num">1</div><h4>Browse Dogs</h4><p>Find a dog that matches your lifestyle.</p></div>
+        <div class="process-step"><div class="step-num">2</div><h4>Apply Online</h4><p>Fill out our short application form.</p></div>
+        <div class="process-step"><div class="step-num">3</div><h4>Meet & Greet</h4><p>Visit and spend time with your match.</p></div>
+        <div class="process-step"><div class="step-num">4</div><h4>Take Them Home</h4><p>Welcome your new family member!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2>Ready to meet your <span style="font-style:italic;">new best friend?</span></h2>
+          <p>Hundreds of loving dogs are waiting to find their forever home.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="dogs.html" class="btn btn-ghost">Browse Dogs</a>
+          <a href="adopt.html" class="btn btn-white" style="position: relative; z-index: 10;">Start Application →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:.5rem;">
+        <span class="label">Happy families</span>
+        <h2>They found their <em style="color:var(--terra);font-style:italic;">best friend</em> here</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Adopting Bella through Pawfect Home was the best decision of my life. The team was so supportive and the process was incredibly smooth."</p>
+          <div class="reviewer"><div class="av">👩</div><div><strong>Vickey M.</strong><span>Adopted Bella — Golden Mix</span></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Max completely transformed our home. He's patient with our kids and the post-adoption support was incredibly helpful."</p>
+          <div class="reviewer"><div class="av">👨</div><div><strong>James & Family</strong><span>Adopted Max — Border Collie</span></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"I was nervous about adopting for the first time, but the team guided me every step of the way. Charlie is my absolute soulmate."</p>
+          <div class="reviewer"><div class="av">🧑</div><div><strong>Stacey K.</strong><span>Adopted Charlie — Shih Tzu</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="color:#fff;"><span>🐾</span> Pawfect Home</a>
+          <p>A safe haven for dogs in need and a starting point for families ready to open their hearts.</p>
+          <div class="socials"><div class="soc">📘</div><div class="soc">📷</div><div class="soc">🐦</div><div class="soc">▶️</div></div>
+        </div>
+        <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Home</a></li><li><a href="dogs.html">Find a Dog</a></li><li><a href="adopt.html">Adopt</a></li><li><a href="about.html">About Us</a></li></ul></div>
+        <div class="footer-col"><h5>Adoption</h5><ul><li><a href="adopt.html">Apply Now</a></li><li><a href="dogs.html">Browse Dogs</a></li><li><a href="#">Our Process</a></li><li><a href="#">FAQs</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">📞 (216) 12 345 678</a></li><li><a href="#">✉️ hello@pawfecthome.org</a></li><li><a href="#">📍 Manouba</a></li><li><a href="#">🕐 Mon–Sun: 9am–6pm</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Pawfect Home. Made with ❤️ for dogs everywhere.</p>
+        <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleHeart(b) { b.classList.toggle('on'); b.textContent = b.classList.contains('on') ? '❤️' : '🤍'; }
+  </script>
+</body>
+</html>
