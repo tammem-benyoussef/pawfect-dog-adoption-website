@@ -74,22 +74,22 @@
           <div class="form-card">
             <h3>Adoption Application</h3>
             <p>We'll review your application within 48 hours.</p>
-            <form onsubmit="handleSubmit(event)">
-              <div class="fg"><label>Which dog interests you?</label><select><option value="">— Select a dog —</option><option>Buddy (Labrador Mix, 4 months)</option><option>Luna (Beagle, 1 year)</option><option>Bear (Golden Retriever, 5 years)</option><option>Daisy (Poodle Mix, 2 years)</option><option>Rocky (German Shepherd, 2 months)</option><option>Mochi (Shih Tzu, 5 months)</option><option>Duke (English Bulldog, 7 years)</option><option>Coco (Chihuahua, 2 years)</option><option>Atlas (Border Collie, 3 years)</option><option>Not sure — help me find a match</option></select></div>
+            <form id="adoptionForm" action="process_form.php" method="POST">
+              <div class="fg" data-field="dog_interested"><label>Which dog interests you?</label><select name="dog_interested"><option value="">— Select a dog —</option><option>Buddy (Labrador Mix, 4 months)</option><option>Luna (Beagle, 1 year)</option><option>Bear (Golden Retriever, 5 years)</option><option>Daisy (Poodle Mix, 2 years)</option><option>Rocky (German Shepherd, 2 months)</option><option>Mochi (Shih Tzu, 5 months)</option><option>Duke (English Bulldog, 7 years)</option><option>Coco (Chihuahua, 2 years)</option><option>Atlas (Border Collie, 3 years)</option><option>Not sure — help me find a match</option></select><div class="fg-error"></div></div>
               <div class="fg-row">
-                <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
-                <div class="fg"><label>Last Name *</label><input type="text" placeholder="Doe" required/></div>
+                <div class="fg" data-field="fname"><label>First Name *</label><input type="text" name="fname" placeholder="Jane" /><div class="fg-error"></div></div>
+                <div class="fg" data-field="lname"><label>Last Name *</label><input type="text" name="lname" placeholder="Doe" /><div class="fg-error"></div></div>
               </div>
-              <div class="fg"><label>Email *</label><input type="email" placeholder="jane@example.com" required/></div>
-              <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"/></div>
+              <div class="fg" data-field="email"><label>Email *</label><input type="email" name="email" placeholder="jane@example.com" /><div class="fg-error"></div></div>
+              <div class="fg" data-field="phone"><label>Phone</label><input type="tel" name="phone" placeholder="XXXXXXXX" maxlength="8"/><div class="fg-error"></div></div>
               <div class="fg-row">
-                <div class="fg"><label>Age *</label><select required><option value="">Select</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55+</option></select></div>
-                <div class="fg"><label>Home type *</label><select required><option value="">Select</option><option>House with yard</option><option>Apartment</option><option>House without yard</option><option>Farm / Rural</option></select></div>
+                <div class="fg" data-field="age"><label>Age *</label><select name="age"><option value="">Select</option><option>Under 18</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55+</option></select><div class="fg-error"></div></div>
+                <div class="fg" data-field="home_type"><label>Home type *</label><select name="home_type"><option value="">Select</option><option>House with yard</option><option>Apartment</option><option>House without yard</option><option>Farm / Rural</option></select><div class="fg-error"></div></div>
               </div>
-              <div class="fg"><label>Other pets at home?</label><select><option>No other pets</option><option>Yes — other dogs</option><option>Yes — cats</option><option>Yes — dogs and cats</option></select></div>
-              <div class="fg"><label>Children at home?</label><select><option>No children</option><option>Yes — under 5 years</option><option>Yes — 5 to 12 years</option><option>Yes — teenagers</option></select></div>
-              <div class="fg"><label>Hours alone per day?</label><select><option>0–2 hours</option><option>2–4 hours</option><option>4–6 hours</option><option>6–8 hours</option><option>8+ hours</option></select></div>
-              <div class="fg"><label>Why do you want to adopt? 💬</label><textarea placeholder="Tell us about yourself and what you're looking for in a dog..."></textarea></div>
+              <div class="fg" data-field="other_pets"><label>Other pets at home?</label><select name="other_pets"><option>No other pets</option><option>Yes — other dogs</option><option>Yes — cats</option><option>Yes — dogs and cats</option></select><div class="fg-error"></div></div>
+              <div class="fg" data-field="children"><label>Children at home?</label><select name="children"><option>No children</option><option>Yes — under 5 years</option><option>Yes — 5 to 12 years</option><option>Yes — teenagers</option></select><div class="fg-error"></div></div>
+              <div class="fg" data-field="hours_alone"><label>Hours alone per day?</label><select name="hours_alone"><option>0–2 hours</option><option>2–4 hours</option><option>4–6 hours</option><option>6–8 hours</option><option>8+ hours</option></select><div class="fg-error"></div></div>
+              <div class="fg" data-field="message"><label>Why do you want to adopt? 💬</label><textarea name="message" placeholder="Tell us about yourself and what you're looking for in a dog..."></textarea><div class="fg-error"></div></div>
               <button type="submit" class="btn btn-primary submit">Submit Application 🐾</button>
             </form>
           </div>
@@ -119,14 +119,133 @@
   </footer>
 
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.submit');
-      btn.textContent = '✅ Application Sent!';
-      btn.style.background = 'var(--sage)';
-      btn.disabled = true;
-      setTimeout(() => { btn.textContent = 'Submit Application 🐾'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 4000);
+    const form = document.getElementById('adoptionForm');
+    const fieldContainers = form.querySelectorAll('[data-field]');
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const formCard = document.querySelector('.form-card');
+    const submitted = urlParams.get('submitted');
+    const error = urlParams.get('error');
+
+    if (submitted === '1') {
+      const notice = document.createElement('div');
+      notice.style.cssText = 'margin:0 0 1rem;padding:1rem 1.2rem;border-radius:12px;background:#e8f5ea;color:#1f5a2e;border:1px solid #b8e0c0;font-weight:600;';
+      notice.textContent = 'Application submitted successfully!';
+      formCard.insertBefore(notice, formCard.firstChild);
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
+
+    if (error) {
+      const notice = document.createElement('div');
+      notice.style.cssText = 'margin:0 0 1rem;padding:1rem 1.2rem;border-radius:12px;background:#fdecea;color:#7a1c1c;border:1px solid #f2b8b5;font-weight:600;';
+      notice.textContent = 'Submission failed. Please try again or contact support.';
+      formCard.insertBefore(notice, formCard.firstChild);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
+    const validationRules = {
+      fname: (value) => {
+        if (!value.trim()) return 'First name is required';
+        if (!/^[a-zA-Z\s\-']+$/.test(value)) return 'First name should only contain letters';
+        return null;
+      },
+      lname: (value) => {
+        if (!value.trim()) return 'Last name is required';
+        if (!/^[a-zA-Z\s\-']+$/.test(value)) return 'Last name should only contain letters';
+        return null;
+      },
+      email: (value) => {
+        if (!value.trim()) return 'Email is required';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Enter a valid email (e.g., you@example.com)';
+        return null;
+      },
+      phone: (value) => {
+        if (value.trim() && !/^\d{8}$/.test(value.trim())) return 'Enter 8 digits for Tunisian phone number';
+        return null;
+      },
+      age: (value) => {
+        if (!value) return 'Age is required';
+        if (value === 'Under 18') return 'You must be 18+ to adopt';
+        return null;
+      },
+      home_type: (value) => {
+        if (!value) return 'Home type is required';
+        return null;
+      },
+      message: (value) => {
+        if (!value.trim()) return 'Tell us why you want to adopt';
+        if (value.trim().length < 10) return 'Please provide at least 10 characters';
+        return null;
+      }
+    };
+
+    function validateField(fieldName) {
+      const container = form.querySelector(`[data-field="${fieldName}"]`);
+      const input = container.querySelector('input, select, textarea');
+      const errorDiv = container.querySelector('.fg-error');
+      const validator = validationRules[fieldName];
+      
+      if (!validator) return true;
+      
+      const error = validator(input.value);
+      
+      if (error) {
+        container.classList.add('error');
+        errorDiv.textContent = '❌ ' + error;
+        return false;
+      } else {
+        container.classList.remove('error');
+        errorDiv.textContent = '';
+        return true;
+      }
+    }
+    fieldContainers.forEach(container => {
+      const fieldName = container.dataset.field;
+      const input = container.querySelector('input, select, textarea');
+      
+      if (!validationRules[fieldName]) return;
+      
+      input.addEventListener('blur', () => {
+        validateField(fieldName);
+      });
+      
+      input.addEventListener('input', () => {
+        if (container.classList.contains('error')) {
+          const error = validationRules[fieldName](input.value);
+          if (!error) {
+            container.classList.remove('error');
+            container.querySelector('.fg-error').textContent = '';
+          }
+        }
+      });
+      
+      if (input.tagName === 'SELECT') {
+        input.addEventListener('change', () => {
+          if (container.classList.contains('error')) {
+            const error = validationRules[fieldName](input.value);
+            if (!error) {
+              container.classList.remove('error');
+              container.querySelector('.fg-error').textContent = '';
+            }
+          }
+        });
+      }
+    });
+    
+    form.addEventListener('submit', (e) => {
+      const fieldsToValidate = ['fname', 'lname', 'email', 'phone', 'age', 'home_type', 'message'];
+      let isValid = true;
+
+      fieldsToValidate.forEach(field => {
+        if (!validateField(field)) {
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>

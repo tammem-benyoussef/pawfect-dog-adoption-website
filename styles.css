@@ -9,8 +9,6 @@
   --t: .3s cubic-bezier(.4,0,.2,1);
 }
 
-/* resets what browser imposes*/
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { scroll-behavior: smooth; }
 body  { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
@@ -192,6 +190,9 @@ p  { color: var(--muted); line-height: 1.75; }
 .fg label { display: block; font-size: .81rem; font-weight: 600; color: var(--ink); margin-bottom: .4rem; }
 .fg input, .fg select, .fg textarea { width: 100%; padding: .75rem .95rem; border: 1.5px solid var(--border); border-radius: var(--r-sm); font-family: 'DM Sans', sans-serif; font-size: .88rem; color: var(--ink); background: var(--cream); transition: border-color var(--t); }
 .fg input:focus, .fg select:focus, .fg textarea:focus { outline: none; border-color: var(--terra); background: #fff; }
+.fg.error input, .fg.error select, .fg.error textarea { border-color: #DC2626; background: #FEE2E2; }
+.fg-error { display: none; font-size: .75rem; color: #DC2626; margin-top: .35rem; font-weight: 500; }
+.fg.error .fg-error { display: block; }
 .fg textarea { resize: vertical; min-height: 95px; }
 .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
 .submit { width: 100%; justify-content: center; margin-top: 1.3rem; padding: .95rem; font-size: .97rem; }

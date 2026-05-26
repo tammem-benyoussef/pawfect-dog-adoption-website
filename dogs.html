@@ -29,6 +29,10 @@
 
   <section style="padding:2.5rem 0 5.5rem;">
     <div class="container">
+      <div style="margin-bottom:2rem;">
+        <input type="text" id="searchBar" placeholder="🔍 Search by dog name or breed..." style="width:100%;padding:0.75rem;font-size:1rem;border:2px solid var(--terra);border-radius:var(--r-md);box-sizing:border-box;">
+        <p style="margin-top:0.5rem;font-size:0.95rem;color:#666;">Showing <span id="dogCount">10</span> dog(s)</p>
+      </div>
       <div class="dog-grid">
         <div class="dog-card">
           <div class="dog-card-img">
@@ -181,6 +185,35 @@
 
   <script>
     function toggleHeart(b) { b.classList.toggle('on'); b.textContent = b.classList.contains('on') ? '❤️' : '🤍'; }
+    
+    function initializeSearch() {
+      const searchBar = document.getElementById('searchBar');
+      const dogCards = document.querySelectorAll('.dog-card');
+      const dogCount = document.getElementById('dogCount');
+      
+      searchBar.addEventListener('input', function() {
+        const searchText = this.value.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        dogCards.forEach(card => {
+          const dogName = card.querySelector('h3').textContent.toLowerCase();
+          
+          const breedSpan = card.querySelector('.dog-meta span');
+          const breed = breedSpan ? breedSpan.textContent.toLowerCase() : '';
+          if (dogName.includes(searchText) || breed.includes(searchText)) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        dogCount.textContent = visibleCount;
+      });
+    }
+    
+    // Initialize search when page loads
+    document.addEventListener('DOMContentLoaded', initializeSearch);
   </script>
 </body>
 </html>

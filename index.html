@@ -176,6 +176,7 @@
         </div>
         <div class="cta-actions">
           <a href="dogs.html" class="btn btn-ghost">Browse Dogs</a>
+          <button onclick="quickEnquiry()" class="btn btn-white" style="position: relative; z-index: 10;">Quick Enquiry</button>
           <a href="adopt.html" class="btn btn-white" style="position: relative; z-index: 10;">Start Application →</a>
         </div>
       </div>
@@ -229,6 +230,64 @@
 
   <script>
     function toggleHeart(b) { b.classList.toggle('on'); b.textContent = b.classList.contains('on') ? '❤️' : '🤍'; }
+    async function quickEnquiry() {
+      const fullName = prompt('What is your full name?');
+      if (!fullName || fullName.trim() === '') {
+        alert('Enquiry cancelled.');
+        return;
+      }
+      
+      const dogName = prompt('Which dog are you interested in?');
+      if (!dogName || dogName.trim() === '') {
+        alert('Enquiry cancelled.');
+        return;
+      }
+      
+      const email = prompt('What is your email address?');
+      if (!email || email.trim() === '') {
+        alert('Enquiry cancelled.');
+        return;
+      }
+      
+      // Validate email contains @
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address (e.g., john@gmail.com).');
+        return;
+      }
+      
+      const confirmed = confirm(`Hi ${fullName}! You want to enquire about ${dogName}. We will send a response to ${email}. Confirm?`);
+      
+      if (confirmed) {
+        try {
+          const response = await fetch('process_enquiry.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: fullName.trim(),
+              email: email.trim(),
+              dog_name: dogName.trim()
+            })
+          });
+
+          const data = await response.json().catch(() => null);
+
+          if (response.ok && data && data.success === true) {
+            alert(`Thank you ${fullName.trim()}! Our team will reach out soon.`);
+          } else {
+            const message = data && data.message ? data.message : 'Request failed.';
+            alert('Error saving enquiry: ' + message);
+          }
+        } catch (err) {
+          const message = err && err.message ? err.message : 'Network error.';
+          alert('Error saving enquiry: ' + message);
+        }
+      } else {
+        alert('Enquiry cancelled');
+      }
+    }
   </script>
 </body>
 </html>
