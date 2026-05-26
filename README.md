@@ -1,6 +1,7 @@
 # 🐾 Pawfect Home — Dog Adoption Website
 
 A dog adoption website built as a university project using HTML, CSS, JavaScript, PHP, and MySQL.
+🔗 Live preview: https://tammem-benyoussef.github.io/pawfect-dog-adoption-website/
 
 ## ✨ Overview
 
